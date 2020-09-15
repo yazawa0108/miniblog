@@ -1,0 +1,68 @@
+    <div class= "contents row">
+        <div class= "main-contents">
+          <div class= "title">タイトル：<%= @post.title %></div>
+            <div class= "article">
+              <div class= "text">
+              <%= simple_format(@post.text) %>
+              </div>
+            <span class="name">
+              <a href="/users/<%= @post.user.id %>">
+              投稿者名：<%= @post.user.nickname %></span>
+              </a>
+              <a class="good-amount">いいね件数: <%= @post.likes.count %></a>
+
+              <!--イイね機能-->
+              <button class="good-btn">
+              <% if current_user.already_liked?(@post) %>
+                <%= button_to 'いいねを取り消す', post_like_path(@post), method: :delete %>
+              <% else %>
+                <%= form_for [@post, @like] do |f| %>
+                  <% if @like.errors.any? %>
+                    <% @like.errors.full_messages.each do |msg| %>
+                      <li style="color: red;"><%= msg %></li>
+                    <% end %>
+                  <% end %>
+                  <%= f.submit 'いいね！' %>
+                <% end %>
+              <% end %>
+              </button>
+
+            </div>
+            <div class= "menu">
+              <ul>
+                <% if user_signed_in? && current_user.id == @post.user_id %>
+                <li><%= link_to 'destory', "/posts/#{@post.id}", method: :delete %></li>
+                <li><%= link_to 'edit', "/posts/#{@post.id}/edit", method: :get %></li>
+                <% end %>
+              </ul>
+            </div>
+        </div>
+        
+      <h4>＜この記事にいいねしたユーザー＞</h4>
+      <% @post.liked_users.each do |user| %>
+        <li><%= user.nickname %></li>
+      <% end %>
+
+      <div class="container"> 
+        <!-- ここからフォーム -->
+        <% if current_user %>
+          <%= form_tag("/posts/#{@post.id}/comments", method: :post) do %>
+            <p><textarea name="text" placeholder="コメントする" rows="2" cols="54"></textarea></p>
+            <input type="submit" value="sent">
+          <% end %>
+        <% end %>
+      </div>
+        
+            <!-- ここから追記してください -->
+        <div class="comments">   
+          <h4>＜コメント一覧＞</h4>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <p>
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                <%= comment.text %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+    </div>

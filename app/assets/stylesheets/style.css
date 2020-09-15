@@ -1,0 +1,274 @@
+.section{
+  height: 300px;
+  width: 100%;
+  background-color: #FF7F50;
+}
+
+.header{
+  
+  /*背景色*/
+  height: 50px;
+  background-color: #808b92;
+  
+  
+  /*文字色*/
+  font-family: "Seymour One", sans-serif;
+  font-size: 20px;
+  color: #F9CB40;
+  line-height: 50px;
+  letter-spacing: 1px;
+}
+
+.header__bar {
+  width: 660 px;
+  height: 50px;
+  
+/*blogマークと、ログイン、新規登録のボタンを横並びに設定*/
+  display: flex;
+  justify-content: space-between;
+
+}
+
+/*タグの色設定*/
+a{
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000080; 
+}
+
+#grid-6 {
+  margin: 0 0 0 auto;
+}
+
+/*ログイン、新規登録のボタンを横並びに設定*/
+#grid-6 ul{
+  /*blogマークと、ログイン、新規登録のボタンを横並びに設定*/
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+
+}
+
+#grid-6 li{
+  list-style: none;
+  margin: 0 10px;
+}
+
+/*ここまで書いた3月5日*/
+
+.contents{
+  height: calc(100vh - 100px);
+  overflow: scroll;
+  color: #000;
+  line-height: 25px;
+
+
+}
+
+.main-contents{
+  /*ボックスの形*/
+  width:640px; height:160px;
+  padding:10px; border:1px solid black;
+  background-color:lightgray;
+  /*中央寄せ、上は５０px空け*/
+  margin: 40px auto;
+  
+/*.menu ul{の「position: absolute;」のために宣言*/
+ position: relative;
+
+}
+
+.title{
+font-weight:bold;
+}
+
+.article {
+  font-size: 14px;
+}
+
+.article .text{
+  width: 640px;
+  height: 100px;
+  overflow: scroll;
+}
+
+.menu ul{
+/*ボタンを横並べにする*/
+  display: flex;
+/*ボタンを右下に設置*/
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 15px;
+
+}
+
+.menu li{
+  list-style: none;
+  margin: 0 5px;
+}
+
+/*ここまで3月7日投稿の位置を設定するところからスタート*/
+
+.form-contents{
+  /*ボックスの形*/
+  width:640px; height:500px;
+  padding:10px; border:1px solid black;
+  margin:  50px 640px ;
+  background-color:lightgray;
+  /*中央寄せ、上は５０px空け*/
+  margin: 50px auto;
+  
+/*.menu ul{の「position: absolute;」のために宣言*/
+ position: relative;
+}
+
+.form-contents h3{
+ text-align:center;
+}
+
+
+.form-contents textarea{
+  margin:5px;
+  border:1px solid black;
+}
+
+.form-contents .submit{
+ text-align:center;
+}
+
+.row{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 660px;
+  zoom: 1;
+}
+
+.post-result{
+  /*ボックスの形*/
+  width:640px; height:150px;
+  padding:10px; border:1px solid black;
+  margin:  50px 640px ;
+  background-color:lightgray;
+  /*中央寄せ、上は５０px空け*/
+  margin: 50px auto;
+  
+  text-align:center;
+
+  position: relative;
+
+}
+
+.post-result a{
+  position: absolute;
+  right: 240px;
+  bottom: 40px;
+
+}
+
+.devise-form{
+  /*ボックスの形*/
+  width:640px; height:290px;
+  padding:10px; border:1px solid black;
+  margin:  50px 640px ;
+  background-color:lightgray;
+  /*中央寄せ、上は５０px空け*/
+  margin: 50px auto;
+  
+  position: relative;
+
+}
+
+.container{
+  /*ボックスの形*/
+  width:640px; height:100px;
+  padding:10px; border:1px solid black;
+  margin:  50px 640px ;
+  background-color:lightgray;
+  /*中央寄せ、上は５０px空け*/
+  margin: 50px auto;
+  
+/*.menu ul{の「position: absolute;」のために宣言*/
+  position: relative;
+}
+
+.container input{
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+
+#toggle {
+  width: 28px;
+  height: 30px;
+  margin: 10px 20px;
+}
+
+#toggle div {
+  width: 100%;
+  height: 5px;
+  background: white;
+  margin: 4px auto;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+}
+
+#toggle.on .one {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#toggle.on .two {
+  opacity: 0;
+}
+
+#toggle.on .three {
+  transform: rotate(-45deg) translate(7px, -8px);
+}
+
+/*検索ボタン*/
+.search-section{
+  width:640px; height:65px;
+  background-color: lightgray;
+  padding:10px; border:1px solid black;
+  margin:  10px 10px 0px ;
+  border-radius: 7px;
+}
+
+.btn-search{
+  border:1px solid black;
+  width: 50px;
+  height: 25px;
+  border-radius: 7px;
+}
+
+
+.good-btn{
+  /*line-height: 1.2px;*/
+  font-size: 1px;
+  width: 42px;
+  height: 25px;
+  border-radius: 7px;
+}
+
+.good-amount{
+  font-size: 1px;
+}
+
+li{
+  list-style: none;
+}
+
+.footer {
+    height: 50px;
+    background-color:#808b92;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 0.1em;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Miniblog2</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    
+
+  </head>
+
+  <body>
+    <div><%= image_tag 'section_image.jpg',class: 'section' %></div>
+    <div class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">Blog</a></h1>
+        <div style="display: none;" id="grid-6">
+        <% if user_signed_in? %>
+          <ul>
+            <a href="/users/<%= current_user.id %>">マイページ</a>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><a class="post" href="/posts/new">投稿する</a></li>
+          </ul>
+        <% else %>
+          <ul>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <li><%= link_to '新規登録', new_user_registration_path %></li>
+          </ul>
+        <% end %>
+        </div>
+        <!--JSの機能をつけてみるよ※勉強してから-->
+        <div id="toggle">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+
+      </div>
+    </header>
+
+
+    <%= yield %>
+
+    <div class= "footer">
+      Copyright © yazawa All Rights Reserved.
+    </div>
+
+  </body>
+</html>

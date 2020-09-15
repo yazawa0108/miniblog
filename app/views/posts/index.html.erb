@@ -1,0 +1,19 @@
+    <div class= "contents row">
+      <% if user_signed_in? %>
+        <div class="search-section">
+          <div class="header_section">
+            <h6>投稿を探す</h6>
+          </div><h5>
+              <form action="/posts/<%= current_user.id %>/search" accept-charset="UTF-8" method="get">
+                <input name="utf8" type="hidden" value="✓">
+                <input class="search__query" name="keyword" placeholder="キーワードで検索" type="text" value="">
+                <button class="btn-search" title="検索" type="submit"><i class="icon-search">検索</i></button>
+              </form>
+              </h5>
+        </div>
+      <% end %>
+      <% @posts.each do |post| %>
+        <%= render partial: "post", locals: { post: post } %>
+      <% end %>
+      <%= paginate(@posts) %>
+    </div>

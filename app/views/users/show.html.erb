@@ -1,0 +1,23 @@
+    <div class= "contents row">
+      <p><%= @nickname %>さんの投稿一覧</p>
+      <% @posts.each do |post| %>
+        <div class= "main-contents">
+          <div class= "title">タイトル：<%= post.title %></div>
+            <div class= "article">
+              <div class= "text">
+              <%= simple_format(post.text) %>
+              </div>
+            </div>
+            <div class= "menu">
+              <ul>
+                <% if user_signed_in? && current_user.id == post.user_id %>
+                <li><%= link_to 'destory', "/posts/#{post.id}", method: :delete %></li>
+                <li><%= link_to 'edit', "/pots/#{post.id}/edit", method: :get %></li>
+                <% end %>
+                <li><%= link_to 'show', "/posts/#{post.id}", method: :get %></li>
+              </ul>
+            </div>
+        </div>
+      <% end %>
+      <%= paginate(@posts) %>
+    </div>
